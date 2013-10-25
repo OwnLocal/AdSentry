@@ -1,5 +1,6 @@
 require "adsentry/version"
 
+require "adsentry/annalist"
+
 module Adsentry
-  # Your code goes here...
 end
