@@ -5,7 +5,7 @@ class Adsentry::Annalist
   end
 
   def insert(ad_id)
-    $REDIS.rpush(queue, ad_id)
+    $REDIS.rpush(queue, ad_id.to_s)
   end
 
   def process
@@ -18,7 +18,7 @@ class Adsentry::Annalist
   end
 
   def complete(ad_id)
-    $REDIS.lrem(queue, 0, ad_id)
+    $REDIS.lrem(processing_queue, 0, ad_id.to_s)
   end
 
   private

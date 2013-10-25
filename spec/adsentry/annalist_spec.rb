@@ -38,7 +38,7 @@ describe Adsentry::Annalist do
   it "can remove something from the processing list when it's completed" do
     it.insert(12345)
     it.process
-    it.complete(12345).should == 1
+    it.complete(12345)
     it.processing_count.should == 0
   end
 end
