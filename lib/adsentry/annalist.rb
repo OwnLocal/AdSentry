@@ -1,16 +1,32 @@
 class Adsentry::Annalist
 
-  def initialize
-    @queue = []
+  def initialize(queue)
+    @queue = queue
   end
 
-  def insert(queue, ad_id)
-    @queue << ad_id
+  def insert(ad_id)
+    $REDIS.rpush(queue, ad_id)
   end
 
-  def remove(queue, ad_id)
-    return :not_in_queue unless @queue.include?(ad_id)
-    return @queue.delete(ad_id)
+  def process
+    return :empty_queue unless value = $REDIS.rpoplpush(queue, processing_queue)
+    value
+  end
+
+  def processing_count
+    $REDIS.llen(processing_queue)
+  end
+
+  def complete(ad_id)
+    $REDIS.lrem(queue, 0, ad_id)
+  end
+
+  private
+
+  attr_reader :queue
+
+  def processing_queue
+    "#{queue.to_s}_processing"
   end
 
 end
