@@ -1,3 +1,3 @@
 require 'redis'
 
-$REDIS = Redis.new
+$REDIS ||= Redis.new
