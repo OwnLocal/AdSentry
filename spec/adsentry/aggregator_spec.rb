@@ -13,6 +13,6 @@ describe Adsentry::Aggregator do
 
   it "reports a hash of queue sizes" do
     Adsentry::Aggregator.register("some_queue")
-    Adsentry::Aggregator.report.should == {"some_queue" => 0}
+    Adsentry::Aggregator.report.should == [{name: "some_queue", count: 0}]
   end
 end

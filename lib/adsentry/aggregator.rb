@@ -11,9 +11,10 @@ class Adsentry::Aggregator
   end
 
   def self.report
-    report = {}
+    report = []
     $REDIS.smembers(AD_QUEUES_KEY).each do |ad_queue|
-      report[ad_queue] = Adsentry::Annalist.new(ad_queue).processing_count
+      annalist = Adsentry::Annalist.new(ad_queue)
+      report << {name: ad_queue, count: annalist.processing_count}
     end
     report
   end
