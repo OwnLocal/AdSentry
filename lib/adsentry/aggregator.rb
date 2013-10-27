@@ -1,6 +1,6 @@
 class Adsentry::Aggregator
 
-  AD_QUEUES_KEY = 'ad_queues'
+  AD_QUEUES_KEY = 'adsentry:ad_queues'
 
   def self.register(queue_name)
     $REDIS.sadd(AD_QUEUES_KEY, queue_name)

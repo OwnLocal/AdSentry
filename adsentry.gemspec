@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["litch@me.com"]
   spec.description   = %q{Monitor the states of ads in AdForge}
   spec.summary       = %q{This uses Redis to store sets of ads that need processing along various steps}
-  spec.homepage      = "github.com/OwnLocal/adsentry"
+  spec.homepage      = "http://github.com/OwnLocal/adsentry"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

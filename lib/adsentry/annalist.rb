@@ -1,7 +1,8 @@
 class Adsentry::Annalist
 
   def initialize(queue)
-    @queue = queue
+    @queue = queue.to_s.start_with?('adsentry:') ? queue : "adsentry:#{queue}"
+    Adsentry::Aggregator.register(@queue)
   end
 
   def insert(ad_id)
