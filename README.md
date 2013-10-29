@@ -1,6 +1,14 @@
 # Adsentry
 
-TODO: Write a gem description
+This is a monitoring plugin for all stages of our ads life cycle.  
+
+### Recording
+
+To record that an ad has entered a stage of a given life cycle, you record it like:
+
+```ruby
+```
+
 
 ## Installation
 
