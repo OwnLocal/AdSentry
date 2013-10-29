@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "adsentry"
   spec.version       = Adsentry::VERSION
   spec.authors       = ["Justin Litchfield"]
-  spec.email         = ["litch@me.com"]
+  spec.email         = ["justin@ownlocal.com"]
   spec.description   = %q{Monitor the states of ads in AdForge}
   spec.summary       = %q{This uses Redis to store sets of ads that need processing along various steps}
   spec.homepage      = "http://github.com/OwnLocal/adsentry"
@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 2.14.1"
 
   spec.add_runtime_dependency "redis", "~> 3.0.5"
+  spec.add_runtime_dependency "raygun4ruby"
 end
