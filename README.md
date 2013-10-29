@@ -2,6 +2,22 @@
 
 This is a monitoring plugin for all stages of our ads life cycle.  
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'adsentry'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install adsentry
+
+## Usage
+
 ### Recording
 
 To record that an ad has entered a stage of a given life cycle, you record it like:
@@ -31,25 +47,6 @@ That returns something like:
 ```
 [{name: "adsentry:some_queue", count: 0}]
 ```
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'adsentry'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install adsentry
-
-## Usage
-
-TODO: Write usage instructions here
-
 ## Contributing
 
 1. Fork it
