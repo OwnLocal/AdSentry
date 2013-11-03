@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Adsentry::Aggregator do
 
+  before(:each) do
+    $REDIS.flushdb
+  end
+
   it "registers a queue with itself" do
     Adsentry::Aggregator.register("adsentry:some_queue")
   end
