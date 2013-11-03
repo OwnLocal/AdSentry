@@ -9,7 +9,7 @@ class Adsentry::Alerter
   end
 
   def self.last_members(list_name, set_size = 1000)
-    $REDIS.lrange("adsentry:#{list_name}", 0, set_size)
+    $REDIS.lrange("adsentry:#{list_name}", 0, set_size).map(&:to_f)
   end
 
 end
