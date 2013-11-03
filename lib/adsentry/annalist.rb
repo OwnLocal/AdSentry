@@ -21,6 +21,7 @@ class Adsentry::Annalist
 
   def complete(ad_id)
     with_notification do
+      Adsentry::Alerter.record(queue)
       $REDIS.lrem(queue, 0, ad_id.to_s)
     end
   end

@@ -29,4 +29,12 @@ describe Adsentry::Annalist do
     it.complete(12345)
     it.processing_count.should == 0
   end
+
+  it "records the time series of completion events in the alerter" do
+    it.insert(12345)
+    it.complete(12345)
+    Adsentry::Alerter.since_last_event(:needs_work).should < 1
+
+    it.processing_count.should == 0
+  end
 end
