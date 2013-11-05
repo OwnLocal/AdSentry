@@ -27,6 +27,12 @@ class Adsentry::Annalist
     end
   end
 
+  def members
+    with_notification do
+      $ADSENTRY_REDIS.lrange(queue, 0, -1)
+    end
+  end
+
   private
 
   attr_reader :queue

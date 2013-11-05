@@ -15,8 +15,8 @@ describe Adsentry::Aggregator do
     Adsentry::Aggregator.recite.should == ["some_queue"]
   end
 
-  it "reports a hash of queue sizes" do
-    Adsentry::Aggregator.register("some_queue")
-    Adsentry::Aggregator.report.should == [{name: "some_queue", count: 0}]
+  it "reports a hash of queue sizes and members" do
+    Adsentry::Annalist.new('some_queue').insert('12345')
+    Adsentry::Aggregator.report.should == [{name: "some_queue", count: 1, members: ['12345']}]
   end
 end

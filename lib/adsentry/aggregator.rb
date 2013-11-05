@@ -14,7 +14,7 @@ class Adsentry::Aggregator
     report = []
     $ADSENTRY_REDIS.smembers(AD_QUEUES_KEY).each do |ad_queue|
       annalist = Adsentry::Annalist.new(ad_queue)
-      report << {name: ad_queue, count: annalist.processing_count}
+      report << {name: ad_queue, count: annalist.processing_count, members: annalist.members}
     end
     report
   end
