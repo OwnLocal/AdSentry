@@ -8,7 +8,7 @@ describe Adsentry::Annalist do
   let(:it) {Adsentry::Annalist.new(:needs_work)}
 
   before(:each) do
-    $REDIS.flushdb
+    $ADSENTRY_REDIS.flushdb
   end
 
   it "records an ad entering a queue" do
