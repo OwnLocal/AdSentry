@@ -2,7 +2,7 @@ class Adsentry::Annalist
 
   def initialize(queue)
     with_notification do
-      @queue = queue.to_s.start_with?('adsentry:') ? queue : "adsentry:#{queue}"
+      @queue = queue
       Adsentry::Aggregator.register(@queue)
     end
   end
@@ -21,7 +21,7 @@ class Adsentry::Annalist
 
   def complete(ad_id)
     with_notification do
-      Adsentry::Alerter.record(queue)
+      Adsentry::Chronologist.record(queue)
       $REDIS.lrem(queue, 0, ad_id.to_s)
     end
   end

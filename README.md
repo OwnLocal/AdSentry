@@ -48,14 +48,14 @@ That returns something like:
 [{name: "adsentry:some_queue", count: 0}]
 ```
 
-### Alerter (tool for analyzing time series events)
+### Chronologist (tool for analyzing time series events)
 
 This will record time-series entries into a Redis list that can then be queried for two use cases:
 
 #### Recording
 
 ```ruby
-Adsentry::Alerter.record(:associaton)
+Adsentry::Chronologist.record(:associaton)
 ```
 
 #### Querying
@@ -63,7 +63,7 @@ Adsentry::Alerter.record(:associaton)
 * Time since last event:
 
 ```ruby
-Adsentry::Alerter.since_last_event(:associaton)
+Adsentry::Chronologist.since_last_event(:associaton)
 => 0.00012111663818359375
 ```
 
@@ -71,7 +71,7 @@ Adsentry::Alerter.since_last_event(:associaton)
 * Last n queries:
 
 ```ruby
-Adsentry::Alerter.last_members(:association)
+Adsentry::Chronologist.last_members(:association)
 => [1383446450.892808, 1383446450.892705, 1383446450.892598, 1383446450.892475]
 ```
 
