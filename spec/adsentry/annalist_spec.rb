@@ -30,11 +30,12 @@ describe Adsentry::Annalist do
     it.processing_count.should == 0
   end
 
-  it "records the time series of completion events in the chronologist" do
+  it "records the time series of events in the chronologist" do
     it.insert(12345)
-    it.complete(12345)
-    Adsentry::Chronologist.since_last_event(:needs_work).should < 1
+    Adsentry::Chronologist.since_last_event('needs_work:insertions').should < 1
 
-    it.processing_count.should == 0
+    it.complete(12345)
+    Adsentry::Chronologist.since_last_event('needs_work:completions').should < 1
+
   end
 end
