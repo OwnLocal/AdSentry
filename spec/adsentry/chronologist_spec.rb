@@ -13,4 +13,8 @@ describe Adsentry::Chronologist do
   it "can return the last n values" do
     Adsentry::Chronologist.last_times(:association).size.should == 1
   end
+
+  it "can return values since time n" do
+    Adsentry::Chronologist.since_time(:association, Time.now-100).size.should == 1
+  end
 end
